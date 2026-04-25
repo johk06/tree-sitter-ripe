@@ -19,7 +19,7 @@ export default grammar({
     // TODO: add the actual grammar rules
     program: $ => seq(
       optional($.shebang),
-      repeat($._expr),
+      alias(repeat($._expr), $.sentence)
     ),
     shebang: $ => token(seq(
       '#!', /[^\n]*/
@@ -38,27 +38,37 @@ export default grammar({
     symbol: $ => seq("'", $.word),
 
     block: $ => seq(
-      "[", repeat($._expr), "]",
+      "[",
+      field("content", alias(repeat($._expr), $.sentence)),
+      "]"
     ),
 
-    comment: $ => (seq(
+    comment: $ => seq(
       "(",
-      repeat(choice(
-        /[^()]+/,
-        $.comment
-      )),
+      choice(repeat(/[^()]/), $.comment),
       ")"
-    )),
+    ),
+    string_escape: $ => seq(
+      '\\', choice('"', '\\', 'n', 'e', 'r', 't'),
+    ),
     string: $ => seq(
       '"',
-      repeat(choice(
-        /[^"\\]/,
-        /\\./
-      )),
+      field("string_content",
+        repeat(
+          choice(
+            /[^"\\]/,
+            $.string_escape
+          )
+        )
+      ),
       '"'
     ),
+
+    raw_string_content: $ => /[^`]*/,
     raw_string: $ => seq(
-      '`', /[^`]*/, '`'
+      '`',
+      $.raw_string_content,
+      '`'
     ),
     number: $ => token(seq(
       optional('-'),
