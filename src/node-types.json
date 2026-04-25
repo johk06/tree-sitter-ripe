@@ -138,6 +138,11 @@
     }
   },
   {
+    "type": "word",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "\"",
     "named": false
   },
@@ -196,9 +201,5 @@
   {
     "type": "t",
     "named": false
-  },
-  {
-    "type": "word",
-    "named": true
   }
 ]
