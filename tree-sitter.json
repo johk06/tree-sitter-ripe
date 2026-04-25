@@ -9,8 +9,8 @@
       "file-types": [
         "ripe"
       ],
-      "injection-regex": "^ripe$",
-      "class-name": "TreeSitterRipe"
+      "path": ".",
+      "injection-regex": "^ripe$"
     }
   ],
   "metadata": {
