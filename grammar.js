@@ -35,7 +35,7 @@ export default grammar({
       $.raw_string
     ),
 
-    word: $ => prec.left(choice(
+    word: $ => prec.right(choice(
       /[a-zA-Z_\+\*\/%@#$!\^&|\.?,><=~{}:][a-zA-Z0-9_\-\+\*\/%@#$!\^&|\.?,><=~{}:]*/,
       seq("-", optional(/[a-zA-Z_\+\*\/%@#$!\^&|\.?,><=~{}:][a-zA-Z0-9_\-\+\*\/%@#$!\^&|\.?,><=~{}:]*/,))
     )),
