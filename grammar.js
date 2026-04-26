@@ -7,6 +7,7 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
+
 export default grammar({
   name: "ripe",
 
@@ -34,10 +35,10 @@ export default grammar({
       $.raw_string
     ),
 
-    word: $ => choice(
+    word: $ => prec.left(choice(
       /[a-zA-Z_\+\*\/%@#$!\^&|\.?,><=~{}:][a-zA-Z0-9_\-\+\*\/%@#$!\^&|\.?,><=~{}:]*/,
-      /[a-zA-Z_\-\+\*\/%@#$!\^&|\.?,><=~{}:][a-zA-Z_\-\+\*\/%@#$!\^&|\.?,><=~{}:][a-zA-Z0-9_\-\+\*\/%@#$!\^&|\.?,><=~{}:]*/
-    ),
+      seq("-", optional(/[a-zA-Z_\+\*\/%@#$!\^&|\.?,><=~{}:][a-zA-Z0-9_\-\+\*\/%@#$!\^&|\.?,><=~{}:]*/,))
+    )),
     symbol: $ => seq("'", $.word),
 
     block: $ => seq(
