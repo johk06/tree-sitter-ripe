@@ -30,3 +30,6 @@
 ((word) @keyword.repeat
   (#any-of? @keyword.repeat
     "loop" "while" "repeat" "for+" "for-" "for" "fori" "foreach+" "foreach-" "foreach#" "foreachi-"))
+
+((word) @keyword.import
+  (#any-of? @keyword.import "use" "load" "loadrel" "loadstd" "loadmod" "import" "require"))
