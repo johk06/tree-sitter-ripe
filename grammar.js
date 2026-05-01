@@ -78,8 +78,8 @@ export default grammar({
     number: $ => token(seq(
       optional('-'),
       choice(
-        /0x[0-9a-fA-F+/]/,
-        /0o[0-9]/,
+        /0x[0-9a-fA-F]+/,
+        /0o[0-9]+/,
         /\d+(\.\d+)?([eE][+-]?\d+)?/
       )
     ))

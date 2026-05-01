@@ -282,11 +282,11 @@
             "members": [
               {
                 "type": "PATTERN",
-                "value": "0x[0-9a-fA-F+/]"
+                "value": "0x[0-9a-fA-F]+"
               },
               {
                 "type": "PATTERN",
-                "value": "0o[0-9]"
+                "value": "0o[0-9]+"
               },
               {
                 "type": "PATTERN",

@@ -33,3 +33,6 @@
 
 ((word) @keyword.import
   (#any-of? @keyword.import "use" "load" "loadrel" "loadstd" "loadmod" "import" "require"))
+
+((word) @boolean
+  (#any-of? @boolean "true" "false" "nil"))
