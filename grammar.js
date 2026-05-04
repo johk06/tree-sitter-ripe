@@ -30,6 +30,7 @@ export default grammar({
       $.number,
       $.word,
       $.symbol,
+      $.unquote,
       $.block,
       $.string,
       $.raw_string
@@ -41,6 +42,7 @@ export default grammar({
       /-[^\s0-9\[\]\;\\'"`()][^\s\[\]\;\\'"`()]*/
     )),
     symbol: $ => seq("'", $.word),
+    unquote: $ => seq("\\", $.word),
 
     block: $ => seq(
       "[",

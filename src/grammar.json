@@ -64,6 +64,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "unquote"
+        },
+        {
+          "type": "SYMBOL",
           "name": "block"
         },
         {
@@ -103,6 +107,19 @@
         {
           "type": "STRING",
           "value": "'"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "word"
+        }
+      ]
+    },
+    "unquote": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\\"
         },
         {
           "type": "SYMBOL",

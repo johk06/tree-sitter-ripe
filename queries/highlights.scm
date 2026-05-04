@@ -11,6 +11,7 @@
 (raw_string) @string
 
 (symbol) @symbol
+(unquote) @macro
 
 (string_escape) @string.escape
 
